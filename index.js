@@ -1,8 +1,9 @@
 // Read the JSON data from the food.json file
 const foodData = require('./food.json');
 function listFood(food=''){
+  // Changed variable name from food -> fd because food is also a parameter whih cause confusion 
   if(food.length>0){
-    return foodData.filter((food) => food.category === food)
+    return foodData.filter((fd) => { return fd.category === food})
   }
   else{
     return foodData
@@ -14,12 +15,13 @@ listFood('Nuts')
 listFood()
 
 
+// Here i think Sort function is used
 function sortCalorie(condition){
   if(condition==='asec'){
-    return foodData.filter((food) => food.calorie < calorie);
+    return foodData.sort((a , b) => a.calorie - b.calorie);
   }
   else if(condition==="desc"){
-    return foodData.filter((food) => food.calorie > calorie)
+    return foodData.sort((a , b) => b.calorie - a.calorie)
   }
 }
 
